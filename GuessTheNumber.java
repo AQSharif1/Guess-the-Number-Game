@@ -22,7 +22,7 @@ public class GuessTheNumber {
 	 * Obtain user name
 	 */
 	public static void userName() {
-		String name;
+		String name = "";
 		System.out.println("Enter Name");
 		name =scanner.nextLine();
 		System.out.println("Hello " + name);
@@ -50,16 +50,16 @@ public class GuessTheNumber {
 		int count = 0;
 		int guess = 0;
 		while(guess != randomNum && count < 5 ) {
-			System.out.println("Pick a number from 1-10");
+			System.out.println("Pick a number from 1-20");
 			guess = scanner.nextInt();
 			count++;
 			if(guess == randomNum) {
 				System.out.println("Congratulations You Won!! \n" + guess + " is the correct number!");
 			}
-			else if(guess > randomNum) {
+			else if(guess > randomNum && count != 5) {
 				System.out.println("Lower!");
 			}
-			else if(guess < randomNum) {
+			else if(guess < randomNum && count != 5) {
 				System.out.println("Higher!");
 			}else
 				System.out.println("You lose correct number was " + randomNum);
@@ -84,13 +84,13 @@ public class GuessTheNumber {
 
 			case 1:
 				System.out.println("Game started\nGenerating Random number");
-				randomNum = (int) ((Math.random() *10) +1);
+				randomNum = (int) ((Math.random() *20) +1);
 				playGame(randomNum);
 				quit = true;
 				break;
 
 			case 2:
-				System.out.println("Not ready yet....");
+				System.out.println("Player not ready yet....");
 				try {
 					Thread.sleep(5000);
 				} catch (InterruptedException e) {
